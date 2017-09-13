@@ -1,0 +1,13 @@
+en:
+  js:
+    filters:
+      unseen:
+        title: "Unseen"
+    topics:
+      none:
+        unseen: You've read every post!
+      bottom:
+        unseen: There are no more unseen topics.
+    topic_count_unseen:
+      one: "{{count}} unseen topic."
+      other: "{{count}} unseen topics."
