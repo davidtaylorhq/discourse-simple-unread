@@ -49,10 +49,20 @@ after_initialize do
 
     # This is based on topics_controller's "bulk" method
     def dismiss_unseen
+      # Load all the "unseen" topics
       tq = TopicQuery.new(current_user)
       topics = TopicQuery.unseen_filter(tq.joined_topic_user, current_user.first_seen_at, current_user.staff?).listable_topics
       topics = topics.where('category_id = ?', params[:category_id]) if params[:category_id]
       topic_ids = topics.pluck(:id)
+
+      # Some topics won't have a TopicUser row yet, so create one
+      # This might be a performance bottleneck for large numbers of topics...
+      to_create = topics.where('tu IS null').pluck(:id)
+      to_create.each do |topic_id|
+        TopicUser.create_missing_record(current_user.id, topic_id, {})
+      end
+
+      # Dismiss the posts
       operation = { type: 'dismiss_posts' }
       operator = TopicsBulkAction.new(current_user, topic_ids, operation)
       changed_topic_ids = operator.perform!
