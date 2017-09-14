@@ -3,6 +3,7 @@ en:
     filters:
       unseen:
         title: "Unseen"
+        help: "topics which contain posts you haven't yet read"
     topics:
       none:
         unseen: You've read every post!
