@@ -14,5 +14,5 @@ en:
         description: Are you sure you want to mark all these topics as read?
         button: Dismiss
     topic_count_unseen:
-      one: "{{count}} unseen topic."
-      other: "{{count}} unseen topics."
+      one: "{{count}} new or updated topic."
+      other: "{{count}} new or updated topics."
