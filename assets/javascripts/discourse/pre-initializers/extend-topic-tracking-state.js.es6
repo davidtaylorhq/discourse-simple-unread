@@ -11,6 +11,8 @@ function initialize(api) {
       if ((filter === "unseen") && (data.message_type === "new_topic" || data.message_type === "latest" )) {
         this.addIncoming(data.topic_id);
       }
+
+      this.set("incomingCount", this.newIncoming.length);
     },
 
   });
