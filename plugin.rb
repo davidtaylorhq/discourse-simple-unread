@@ -45,7 +45,7 @@ after_initialize do
   end
 
   class SimpleUnread::DismissController < ::ApplicationController
-    before_filter :ensure_logged_in
+    before_action :ensure_logged_in
 
     # This is based on topics_controller's "bulk" method
     def dismiss_unseen
