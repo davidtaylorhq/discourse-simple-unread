@@ -4,15 +4,3 @@ en:
       unseen:
         title: "Unseen"
         help: "topics which contain posts you haven't yet read"
-    topics:
-      none:
-        unseen: You've read every post!
-      bottom:
-        unseen: There are no more unseen topics.
-      dismiss_unseen:
-        title: Dismiss unseen topics?
-        description: Are you sure you want to mark all these topics as read?
-        button: Dismiss
-    topic_count_unseen:
-      one: "{{count}} new or updated topic."
-      other: "{{count}} new or updated topics."
